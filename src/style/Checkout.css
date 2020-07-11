@@ -1,0 +1,9 @@
+.Checkout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Checkout button{
+  margin-bottom: 20px;
+}

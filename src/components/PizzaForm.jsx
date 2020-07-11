@@ -15,7 +15,7 @@ class PizzaForm extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      step: 3,
+      step: 1,
       pizzas: {
         sizes: [],
         crusts: [],
@@ -77,10 +77,14 @@ class PizzaForm extends Component {
     }))
   }
 
-  nextStep = () => {
-    const actualStep = this.state.step;
-    const nextStep = actualStep + 1;
-    this.setState({step: nextStep});
+  nextStep = (value) => {
+    if(!isNaN(value)) {
+      this.setState({step: value});
+    } else {
+      const actualStep = this.state.step;
+      const nextStep = actualStep + 1;
+      this.setState({step: nextStep});
+    }
   }
 
   render() {
@@ -104,7 +108,7 @@ class PizzaForm extends Component {
                         changeFlavor={this.changeFlavor}
                         nextStep={this.nextStep}/>
     } else if(this.state.step === 4) {
-      choose = <HalfFlavor />
+      choose = <HalfFlavor nextStep={this.nextStep}/>
     } else if(this.state.step === 6) {
       choose = <Checkout />
     }

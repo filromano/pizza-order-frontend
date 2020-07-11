@@ -1,0 +1,9 @@
+.HalfFlavor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.HalfFlavor button {
+  margin-bottom: 20px;
+}
