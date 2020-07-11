@@ -1,3 +1,5 @@
+import './style/style.css';
+
 import React from 'react';
 
 import Header from './components/template/Header';
@@ -8,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <section className="content-wraper">
+      <section className="content-wrapper">
         <PizzaForm />
       </section>
       <Footer />

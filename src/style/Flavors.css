@@ -1,0 +1,15 @@
+.Flavors {
+  display: flex;
+  flex-direction: column;
+}
+
+.Flavors label{
+  font-size: 1.2em;
+  font-weight: 500;
+}
+
+.Flavors p {
+  font-size: 0.9em;
+  font-style: italic;
+  font-weight: 100;
+}
