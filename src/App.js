@@ -2,14 +2,15 @@ import React from 'react';
 
 import Header from './components/template/Header';
 import Footer from './components/template/Footer';
+import PizzaForm from  './components/PizzaForm';
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <div className="content-wraper">
-        <p>Conteudo</p>
-      </div>
+      <section className="content-wraper">
+        <PizzaForm />
+      </section>
       <Footer />
     </div>
   );
