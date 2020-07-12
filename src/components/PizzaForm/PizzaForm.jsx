@@ -21,6 +21,7 @@ class PizzaForm extends Component {
         sizes: [],
         crusts: [],
         flavors: [],
+        pizzaDia: '',
       },
       order: {
         crust: '',
@@ -132,6 +133,7 @@ class PizzaForm extends Component {
                      nextStep={this.nextStep}/>
     } else if(this.state.step === 3) {
       choose = <Flavors flavors={this.state.pizzas.flavors}
+                        pizzaDia={this.state.pizzas.pizzaDia}
                         changeFlavor={this.changeFlavor}
                         position={1}
                         nextStep={this.nextStep}
@@ -140,6 +142,7 @@ class PizzaForm extends Component {
       choose = <HalfFlavor nextStep={this.nextStep}/>
     } else if(this.state.step === 5) {
       choose = <Flavors flavors={this.state.pizzas.flavors}
+                        pizzaDia={this.state.pizzas.pizzaDia}
                         changeFlavor={this.changeFlavor}
                         position={2}
                         nextStep={this.nextStep}
