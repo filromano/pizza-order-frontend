@@ -119,6 +119,15 @@ class PizzaForm extends Component {
     }
   }
 
+  sendOrder = () => {
+    axios.post(`${URL}/order`, {
+      order: this.state.order
+    })
+    .then(res => {
+      alert(`Pedido realizado com sucesso, ${res.data.points} pontos foram adicionados a sua conta.`)
+    })
+  }
+
   render() {
 
     let choose;
@@ -148,7 +157,7 @@ class PizzaForm extends Component {
                         nextStep={this.nextStep}
                         calculateTotal={this.calculateTotal}/>
     } else if(this.state.step === 6) {
-      choose = <Checkout />
+      choose = <Checkout sendOrder={this.sendOrder}/>
     }
 
     return (
