@@ -1,5 +1,6 @@
 .PizzaForm{
   display: flex;
+  flex-direction: column;
 }
 
 .PizzaForm h2, .PizzaForm h3{
@@ -23,9 +24,9 @@
 
 .PizzaForm button {
   width: 200px;
-  background-color: #888098;
   outline: none;
   border: none;
   padding: 10px 0;
+  background-color: #888098;
   color: #FFFFFF;
 }

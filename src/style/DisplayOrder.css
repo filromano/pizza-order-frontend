@@ -1,8 +1,16 @@
 .DisplayOrder {
-  position: fixed;
-  padding: 20px;
-  width: 300px;
-  top: 25%;
-  right: 0;
-  background: #CFB3CD;
+  display: block;
+  margin-top: 20px;
+}
+
+@media screen and (min-width: 800px){
+  .DisplayOrder {
+    position: fixed;
+    top: 25%;
+    right: 0;
+    width: 300px;
+    margin-top: 0;
+    padding: 20px;
+    background: #CFB3CD;
+  }
 }

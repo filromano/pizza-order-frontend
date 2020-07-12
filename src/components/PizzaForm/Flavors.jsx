@@ -27,7 +27,7 @@ export default (props) => {
     const special = flavor.name === props.pizzaDia ? true : false;
     let star;
     if(special) {
-      star = <span class="fa fa-star checked"></span>;
+      star = <span className="fa fa-star checked"></span>;
     }
 
     return (
