@@ -10,7 +10,7 @@ export default (props) => {
              id={flavor.name}
              name="flavor1"
              value={flavor.name}
-             onChange={e => props.changeFlavor(e.target.value)} />
+             onChange={e => props.changeFlavor(e.target.value, props.position)} />
       <label>{flavor.name}</label>
       <p>{flavor.ingredients.join(', ')}</p>
     </div>
@@ -20,7 +20,7 @@ export default (props) => {
     <div className="Flavors">
       <h3>Escolha seus sabores:</h3>
       {flavors}
-      <button onClick={props.nextStep}>Próximo passo</button>
+      <button onClick={e => { props.nextStep(); props.calculateTotal();}}>Próximo passo</button>
     </div>
   )
 };

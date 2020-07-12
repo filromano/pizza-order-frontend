@@ -9,6 +9,9 @@ export default (props) => {
       <p>Massa: {props.order.crust}</p>
       <p>Tamanho: {props.order.size}</p>
       <p>Sabor: {props.order.flavor1}</p>
+      <p>Preço: {props.order.price1}</p>
+      <p>Sabor: {props.order.flavor2}</p>
+      <p>Preço: {props.order.price2}</p>
       <p>Total: {props.order.total}</p>
     </div>
   )

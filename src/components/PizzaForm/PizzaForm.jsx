@@ -27,8 +27,9 @@ class PizzaForm extends Component {
         size: '',
         flavor1: '',
         flavor2: '',
-        price: 0,
-        half: false,
+        price1: 0,
+        price2: 0,
+        total: 0,
       }
     }
   }
@@ -58,22 +59,51 @@ class PizzaForm extends Component {
     }))
   }
 
-  changeFlavor = (flavor) => {
-    this.updatePrice(flavor);
-    this.setState(state => ({
-      order: {
-        ...state.order,
-        flavor1: flavor
-      }
-    }))
+  changeFlavor = (flavor, position) => {
+    this.updatePrice(flavor, position);
+    if(position === 1) {
+      this.setState(state => ({
+        order: {
+          ...state.order,
+          flavor1: flavor
+        }
+      }))
+    } else {
+      this.setState(state => ({
+        order: {
+          ...state.order,
+          flavor2: flavor
+        }
+      }))
+    }
+    
   }
 
-  updatePrice = (value) => {
-    const flavorInfo = this.state.pizzas.flavors.filter(flavor => flavor.name === value)[0];
+  updatePrice = (value, position) => {
+    const price = this.state.pizzas.flavors.filter(flavor => flavor.name === value)[0].price;
+    if(position === 1){
+      this.setState(state => ({
+        order: {
+          ...state.order,
+          price1: price
+        }
+      }))
+    } else {
+      this.setState(state => ({
+        order: {
+          ...state.order,
+          price2: price
+        }
+      }))
+    }
+  }
+
+  calculateTotal = () => {
+    const total = this.state.order.price1 < this.state.order.price2 ? this.state.order.price2 : this.state.order.price1;
     this.setState(state => ({
       order: {
         ...state.order,
-        total: flavorInfo.price
+        total: total
       }
     }))
   }
@@ -100,12 +130,20 @@ class PizzaForm extends Component {
       choose = <Size updateValue={this.selectSize}
                      sizes={this.state.pizzas.sizes}
                      nextStep={this.nextStep}/>
-    } else if(this.state.step === 3 || this.state.step === 5) {
+    } else if(this.state.step === 3) {
       choose = <Flavors flavors={this.state.pizzas.flavors}
                         changeFlavor={this.changeFlavor}
-                        nextStep={this.nextStep}/>
+                        position={1}
+                        nextStep={this.nextStep}
+                        calculateTotal={this.calculateTotal}/>
     } else if(this.state.step === 4) {
       choose = <HalfFlavor nextStep={this.nextStep}/>
+    } else if(this.state.step === 5) {
+      choose = <Flavors flavors={this.state.pizzas.flavors}
+                        changeFlavor={this.changeFlavor}
+                        position={2}
+                        nextStep={this.nextStep}
+                        calculateTotal={this.calculateTotal}/>
     } else if(this.state.step === 6) {
       choose = <Checkout />
     }
