@@ -1,9 +1,10 @@
-import '../style/PizzaForm.css';
+import '../../style/PizzaForm.css';
 
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import ListItems from './ListItems';
+import Crust from './Crust';
+import Size from './Size';
 import Flavors from './Flavors';
 import DisplayOrder from './DisplayOrder';
 import HalfFlavor from './HalfFlavor';
@@ -92,17 +93,13 @@ class PizzaForm extends Component {
     let choose;
 
     if(this.state.step === 1) {
-      choose = <ListItems name="crust"
-                          title="Selecione uma massa"
-                          updateValue={this.selectCrust}
-                          items={this.state.pizzas.crusts}
-                          nextStep={this.nextStep}/>
+      choose = <Crust updateValue={this.selectCrust}
+                      crusts={this.state.pizzas.crusts}
+                      nextStep={this.nextStep}/>
     } else if(this.state.step === 2) {
-      choose = <ListItems name="size"
-                          title="Selecione um tamanho"
-                          updateValue={this.selectSize}
-                          items={this.state.pizzas.sizes}
-                          nextStep={this.nextStep}/>
+      choose = <Size updateValue={this.selectSize}
+                     sizes={this.state.pizzas.sizes}
+                     nextStep={this.nextStep}/>
     } else if(this.state.step === 3 || this.state.step === 5) {
       choose = <Flavors flavors={this.state.pizzas.flavors}
                         changeFlavor={this.changeFlavor}

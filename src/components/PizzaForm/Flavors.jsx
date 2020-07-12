@@ -1,4 +1,4 @@
-import '../style/Flavors.css';
+import '../../style/Flavors.css';
 
 import React from 'react';
 

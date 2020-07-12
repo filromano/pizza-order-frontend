@@ -2,15 +2,15 @@ import React from 'react';
 
 export default (props) => {
 
-  const items = props.items.map((item, index) => 
+  const items = props.sizes.map((item, index) => 
     <option value={item} key={index}>{item}</option>
   );
 
 
   return (
     <div>
-      <h3>{props.title}</h3>
-      <select name={props.name}
+      <h3>Selecione um tamanho:</h3>
+      <select name="size"
               onChange={e => props.updateValue(e.target.value)}>
         <option value="">Escolha uma</option>
         {items}

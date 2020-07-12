@@ -1,4 +1,4 @@
-import '../style/Checkout.css';
+import '../../style/Checkout.css';
 
 import React from 'react';
 
