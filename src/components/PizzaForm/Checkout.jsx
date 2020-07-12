@@ -7,7 +7,7 @@ export default (props) => {
     <div className="Checkout">
       <h2>Obrigado por nos escolher</h2>
       <button onClick={props.sendOrder}>Finalizar pedido</button>
-      <button>Recomeçar pedido</button>
+      <button onClick={props.refresh}>Recomeçar pedido</button>
     </div>
   );
 };

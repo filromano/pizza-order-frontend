@@ -124,8 +124,13 @@ class PizzaForm extends Component {
       order: this.state.order
     })
     .then(res => {
-      alert(`Pedido realizado com sucesso, ${res.data.points} pontos foram adicionados a sua conta.`)
+      alert(`Pedido realizado com sucesso, ${res.data.points} pontos foram adicionados a sua conta.`);
+      this.refresh();
     })
+  }
+
+  refresh = () => {
+    window.location.reload(false);
   }
 
   render() {
@@ -157,7 +162,8 @@ class PizzaForm extends Component {
                         nextStep={this.nextStep}
                         calculateTotal={this.calculateTotal}/>
     } else if(this.state.step === 6) {
-      choose = <Checkout sendOrder={this.sendOrder}/>
+      choose = <Checkout sendOrder={this.sendOrder}
+                         refresh={this.refresh}/>
     }
 
     return (
