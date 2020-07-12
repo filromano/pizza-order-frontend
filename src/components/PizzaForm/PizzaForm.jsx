@@ -16,7 +16,7 @@ class PizzaForm extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      step: 1,
+      step: 3,
       pizzas: {
         sizes: [],
         crusts: [],

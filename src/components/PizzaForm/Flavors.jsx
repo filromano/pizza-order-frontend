@@ -22,17 +22,27 @@ export default (props) => {
     
   }
 
-  const flavors = props.flavors.map((flavor, index) => 
-    <div key={index} className={`items ${flavor.name === props.pizzaDia ? 'special' : ''}`}>
-      <input type="radio"
-             id={flavor.name}
-             name="flavor"
-             value={flavor.name}
-             onChange={e => props.changeFlavor(e.target.value, props.position)} />
-      <label>{flavor.name}</label>
-      <p>{flavor.ingredients.join(', ')}</p>
-    </div>
-  )
+  const flavors = props.flavors.map((flavor, index) => {
+    
+    const special = flavor.name === props.pizzaDia ? true : false;
+    let star;
+    if(special) {
+      star = <span class="fa fa-star checked"></span>;
+    }
+
+    return (
+      <div key={index} className={`items ${special ? 'special' : ''}`}>
+        <input type="radio"
+              id={flavor.name}
+              name="flavor"
+              value={flavor.name}
+              onChange={e => props.changeFlavor(e.target.value, props.position)} />
+        <label>{flavor.name}</label>
+        {star}
+        <p>{flavor.ingredients.join(', ')}</p>
+      </div>
+    );
+  });
 
   return (
     <div className="Flavors">
