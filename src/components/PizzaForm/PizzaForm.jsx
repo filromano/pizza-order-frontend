@@ -38,8 +38,11 @@ class PizzaForm extends Component {
   componentDidMount() {
     axios.get(`${URL}/pizzas`).then(
       resp => {
-        this.setState({pizzas: resp.data});
-    });
+        this.setState({pizzas: resp.data})
+    }).catch(
+      err=>{
+        alert('Desculpe estamos com um problema no servidor')
+      });
   }
 
   selectCrust = (value) => {
