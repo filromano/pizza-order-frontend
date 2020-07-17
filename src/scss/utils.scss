@@ -1,7 +1,15 @@
 //variables
-
 $lightPurple: #888098;
 $darkBlue: #344055;
 $lightBlue: #266DD3;
 $lightPink: #CFB3CD;
 $pink: #DFC2F2;
+
+$fontFamily: 'Roboto';
+
+//Mixings
+@mixin flexDisplay($direction: row, $items: null) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $items;
+}

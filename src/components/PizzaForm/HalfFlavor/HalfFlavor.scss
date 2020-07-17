@@ -1,7 +1,7 @@
+@import '../../../scss/utils.scss';
+
 .HalfFlavor {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @include flexDisplay($direction: column, $items: center);
   button {
     margin-bottom: 20px;
   }

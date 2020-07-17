@@ -1,8 +1,7 @@
 @import '../../../scss/utils.scss';
 
 .Flavors {
-  display: flex;
-  flex-direction: column;
+  @include flexDisplay($direction: column);
   label {
     font-size: 1.2em;
     font-weight: 500;

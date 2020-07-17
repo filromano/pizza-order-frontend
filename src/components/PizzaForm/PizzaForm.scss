@@ -1,8 +1,7 @@
 @import '../../scss//utils.scss';
 
 .PizzaForm {
-  display: flex;
-  flex-direction: column;
+  @include flexDisplay($direction: column);
   h2, h3 {
     margin-bottom: 20px;
   }
