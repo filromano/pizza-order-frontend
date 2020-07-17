@@ -1,4 +1,4 @@
-import '../../style/HalfFlavor.css';
+import './HalfFlavor.scss';
 
 import React from 'react';
 

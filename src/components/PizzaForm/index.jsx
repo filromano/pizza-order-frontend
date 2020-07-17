@@ -1,14 +1,14 @@
-import '../../style/PizzaForm.css';
+import './PizzaForm.scss';
 
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import Crust from './Crust';
-import Size from './Size';
-import Flavors from './Flavors';
-import DisplayOrder from './DisplayOrder';
-import HalfFlavor from './HalfFlavor';
-import Checkout from './Checkout';
+import Crust from './Crust/';
+import Size from './Size/';
+import Flavors from './Flavors/';
+import DisplayOrder from './DisplayOrder/';
+import HalfFlavor from './HalfFlavor/';
+import Checkout from './Checkout/';
 
 const URL = 'http://localhost:3003/api';
 

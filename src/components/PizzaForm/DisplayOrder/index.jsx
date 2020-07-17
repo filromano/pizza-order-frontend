@@ -1,4 +1,4 @@
-import '../../style/DisplayOrder.css';
+import './DisplayOrder.scss';
 
 import React from 'react';
 
