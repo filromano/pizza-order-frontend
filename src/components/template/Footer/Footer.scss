@@ -1,8 +1,10 @@
+@import '../../../scss/utils.scss';
+
 footer{
   position: fixed;
   bottom: 0;
   display: block;
   width: 100%;
   text-align: center;
-  background-color: #266DD3;
+  background-color: $lightBlue;
 }

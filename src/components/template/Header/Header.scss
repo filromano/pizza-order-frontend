@@ -1,8 +1,10 @@
+@import '../../../scss/utils.scss';
+
 header{
   display: block;
   width: 100%;
   padding: 20px 0;
-  background-color: #344055;
+  background-color: $darkBlue;
   color: #FFFFFF;
   text-align: center;
 }
