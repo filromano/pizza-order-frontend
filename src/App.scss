@@ -1,18 +1,5 @@
 @import './scss/utils.scss';
 
-html, body {
-  display: block;
-  height: 100%;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  font-family: $fontFamily, sans-serif;
-}
-
-h1, h2, h3 {
-  margin: 0;
-}
-
 .App {
   @include flexDisplay($direction: column, $items: center);
 }
