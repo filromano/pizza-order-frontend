@@ -6,9 +6,11 @@ import { verifyRadioButton } from '../verify';
 
 export default (props) => {
 
-  const flavors = props.flavors.map((flavor, index) => {
+  const {pizzaDia, flavors, position, nextStep, calculateTotal} = props;
+
+  const flavorsItem = flavors.map((flavor, index) => {
     
-    const special = flavor.name === props.pizzaDia ? true : false;
+    const special = flavor.name === pizzaDia ? true : false;
     let star;
     if(special) {
       star = <span className="fa fa-star checked"></span>;
@@ -20,7 +22,7 @@ export default (props) => {
               id={flavor.name}
               name="flavor"
               value={flavor.name}
-              onChange={e => props.changeFlavor(e.target.value, props.position)} />
+              onChange={e => props.changeFlavor(e.target.value, position)} />
         <label>{flavor.name}</label>
         {star}
         <p>{flavor.ingredients.join(', ')}</p>
@@ -31,9 +33,9 @@ export default (props) => {
   return (
     <div className="Flavors">
       <h3>Escolha seus sabores:</h3>
-      {flavors}
+      {flavorsItem}
       <button onClick={(e) => 
-          verifyRadioButton(document.querySelectorAll('input[name="flavor"]'), [ props.nextStep, props.calculateTotal])}>
+          verifyRadioButton(document.querySelectorAll('input[name="flavor"]'), [ nextStep, calculateTotal])}>
         Próximo passo
         </button>
     </div>
