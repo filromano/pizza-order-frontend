@@ -1,19 +1,12 @@
 import React from 'react';
 
-export default (props) => {
+import { verify } from '../verify';
 
-  function verify() {
-    if(document.getElementById('crust').value !== '') {
-      props.nextStep();
-    } else {
-      alert('Você precisa escolher uma massa'); 
-    }
-  }
+export default (props) => {
 
   const items = props.crusts.map((item, index) => 
     <option value={item} key={index}>{item}</option>
   );
-
 
   return (
     <div>
@@ -24,7 +17,7 @@ export default (props) => {
         <option value="">Escolha uma</option>
         {items}
       </select>
-      <button onClick={e => verify()}>Próximo passo</button>
+      <button onClick={e => verify(document.getElementById('crust'), props.nextStep)}>Próximo passo</button>
     </div>
   )
 };

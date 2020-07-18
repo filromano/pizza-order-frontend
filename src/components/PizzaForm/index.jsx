@@ -1,7 +1,6 @@
 import './PizzaForm.scss';
 
 import React, { Component } from 'react';
-import axios from 'axios';
 
 import Crust from './Crust/';
 import Size from './Size/';
@@ -10,7 +9,7 @@ import DisplayOrder from './DisplayOrder/';
 import HalfFlavor from './HalfFlavor/';
 import Checkout from './Checkout/';
 
-const URL = 'http://localhost:3003/api';
+import { getPizzas, sendOrder } from './serverConnection';
 
 class PizzaForm extends Component {
   constructor(props) {
@@ -36,13 +35,9 @@ class PizzaForm extends Component {
   }
 
   componentDidMount() {
-    axios.get(`${URL}/pizzas`).then(
-      resp => {
-        this.setState({pizzas: resp.data})
-    }).catch(
-      err=>{
-        alert('Desculpe estamos com um problema no servidor')
-      });
+    getPizzas()
+      .then(resp => this.setState({pizzas: resp}))
+      .catch(err => alert(err));
   }
 
   selectCrust = (value) => {
@@ -123,13 +118,12 @@ class PizzaForm extends Component {
   }
 
   sendOrder = () => {
-    axios.post(`${URL}/order`, {
-      order: this.state.order
-    })
-    .then(res => {
-      alert(`Pedido realizado com sucesso, ${res.data.points} pontos foram adicionados a sua conta.`);
-      this.refresh();
-    })
+    sendOrder(this.state.order)
+      .then(resp=> {
+        alert(resp);
+        this.refresh();
+      })
+      .catch(err => alert(err));
   }
 
   refresh = () => {
