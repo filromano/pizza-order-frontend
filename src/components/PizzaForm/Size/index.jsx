@@ -4,7 +4,7 @@ import { verify } from '../verify';
 
 export default (props) => {
 
-  const {sizes, updateValue, nextStep} = props;
+  const { sizes, updateValue, nextStep } = props;
 
   const items = sizes.map((item, index) => 
     <option value={item} key={index}>{item}</option>

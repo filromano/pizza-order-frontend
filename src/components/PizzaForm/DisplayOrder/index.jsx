@@ -6,7 +6,7 @@ export default (props) => {
 
   let flavor2Item;
 
-  const {crust, size, flavor1, price1, total, flavor2, price2} = props.order;
+  const { crust, size, flavor1, price1, total, flavor2, price2 } = props.order;
 
   if(flavor2) {
     flavor2Item = 

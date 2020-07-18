@@ -4,7 +4,7 @@ import { verify } from '../verify';
 
 export default (props) => {
 
-  const {crusts, updateValue, nextStep} = props;
+  const { crusts, updateValue, nextStep } = props;
 
   const items = crusts.map((item, index) => 
     <option value={item} key={index}>{item}</option>

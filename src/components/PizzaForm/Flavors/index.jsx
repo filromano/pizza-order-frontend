@@ -6,7 +6,7 @@ import { verifyRadioButton } from '../verify';
 
 export default (props) => {
 
-  const {pizzaDia, flavors, position, nextStep, calculateTotal} = props;
+  const { pizzaDia, flavors, position, nextStep, calculateTotal } = props;
 
   const flavorsItem = flavors.map((flavor, index) => {
     
