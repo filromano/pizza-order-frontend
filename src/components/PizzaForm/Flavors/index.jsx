@@ -2,25 +2,9 @@ import './Flavors.scss';
 
 import React from 'react';
 
-export default (props) => {
+import { verifyRadioButton } from '../verify';
 
-  function verify() {
-    const rbs = document.querySelectorAll('input[name="flavor"]');
-    let selectedValue;
-    for (const rb of rbs) {
-        if (rb.checked) {
-            selectedValue = rb.value;
-            break;
-        }
-    }
-    if(selectedValue !== undefined){
-      props.nextStep();
-      props.calculateTotal();
-    } else {
-      alert('Você precisa escolher um sabor');
-    }
-    
-  }
+export default (props) => {
 
   const flavors = props.flavors.map((flavor, index) => {
     
@@ -48,7 +32,10 @@ export default (props) => {
     <div className="Flavors">
       <h3>Escolha seus sabores:</h3>
       {flavors}
-      <button onClick={e => verify()}>Próximo passo</button>
+      <button onClick={(e) => 
+          verifyRadioButton(document.querySelectorAll('input[name="flavor"]'), [ props.nextStep, props.calculateTotal])}>
+        Próximo passo
+        </button>
     </div>
   )
 };
